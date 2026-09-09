@@ -1,8 +1,26 @@
+/*VARIABLES GLOBALES MODO OSCURO / GRAPE*/
 :root {
- --color-primary: #17365D;
- --color-accent: #ED7D31;
- --color-bg: #F7F8FA;
- --color-text: #1F2937;
- --space: 1rem;
+ --color-primary: #0f0f12;  /* Fondo principal oscuro */
+ --color-card: #18181c; /* Fondo de tarjetas*/
+ --text-primary: #f0f0f5; /* Texto principal claro */
+ --text-secondary: #9a9ab0; /* Texto secundario o descripciones */
+ 
+ --brand-accent:#8a2be2;    /* Violeta/Grape tecnologico para acentos */
+ --brand-hover: #9d4edd;    /* Tono mas claro para estados hover */
+ --border-color: #272730;   /* Bordes minimalistas */
+/* Espaciados y Bordes */
+ --radius-sm: 6px;
+ --radius-md: 12px;
+ --space-gap: 1.5rem;
 }
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box; /* Requisito clave del taller */
+  margin: 0;
+  padding: 0;
+}
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+}
