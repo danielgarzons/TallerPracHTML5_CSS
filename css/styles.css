@@ -13,14 +13,52 @@
  --radius-md: 12px;
  --space-gap: 1.5rem;
 }
-* {
-  box-sizing: border-box; /* Requisito clave del taller */
-  margin: 0;
-  padding: 0;
+
+/* Requisito clave del taller | Barra y Flexboxs (Inicio, servicios, nosotros, contacto) */  
+.navbar {
+  display: flex; 
+  justify-content: space-between; /* Separa el logo a la izquierda y enlaces a la derecha */
+  align-content: center;
+  align-items: center;
+
+  padding: 5px 5px; /* Alto y ancho de la barra */
+  background-color: #eb8908;
 }
-body {
-    background-color: var(--bg-primary);
+
+/* Estilos para el titulo - logo */
+.logo {
     color: var(--text-primary);
+    font-weight: bold;
+    font-size: 2.5rem;
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
 }
+
+/* Estilos para los enlaces de navegación */
+.nav-links {
+  display: flex;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 1.5rem;
+  gap: 30px;      /* Espacio horizontal entre los enlaces */
+}
+
+.nav-links a:hover {
+  color: var(--brand-hover);    /* Cambia el color al pasar el mouse */
+}
+
+.user-sesion {
+    color: var(--text-primary);
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.6;
+
+}
+
+.center-ID{
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+
