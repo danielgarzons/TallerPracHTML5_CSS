@@ -23,14 +23,17 @@
 
 /* Estilos para el fondo y la tipografía general */
 body {
-  background-color: var(--bg-primary); /* Pinta el fondo general de oscuro */
-  color: var(--text-primary);           /* Pinta el texto general de claro */
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; /* Fuente moderna */
-  line-height: 1.6;                     /* Espacio cómodo entre líneas de texto */
-  display: flex;                        /* Prepara la estructura vertical */
-  flex-direction: column;               /* Apila header, main y footer */
-  min-height: 100vh;                    /* Asegura que ocupe toda la altura de la pantalla */
-}
+background-image: url('../img/fondo.avif'); /* Imagen de fondo */
+    
+    /* Configuración para que se ajuste perfectamente a la pantalla */
+    background-size: cover;          /* Cubre todo el ancho y alto */
+    background-position: center;      /* Centra la imagen */
+    background-repeat: no-repeat;    /* Evita que la imagen se repita */
+    background-attachment: fixed;    /* La imagen se queda fija mientras haces scroll */
+    
+    color: var(--text-primary);      /* Asegura que tus textos sigan siendo visibles */
+}                 /* Asegura que ocupe toda la altura de la pantalla */
+
 
 /*2 CABECERA Y NAVEGACIÓN*/
 header {
@@ -39,7 +42,7 @@ header {
   font-size: 2.5rem;                   /* Tamaño grande para el título principal */
   font-weight: 800;                    /* Letra gruesa (negrita) */
   letter-spacing: 4px;                 /* Espaciado entre letras (estilo futurista/minimalista) */
-  color: var(--brand-accent);          /* Color violeta de la marca */
+  color: var(--text-primary);          /* Color violeta de la marca */
 }
 
 nav {
@@ -47,7 +50,7 @@ nav {
   justify-content: center;             /* Centra los enlaces horizontalmente */
   gap: 2rem;                           /* Separación constante entre cada enlace */
   padding: 1rem;                       /* Relleno interno arriba y abajo */
-  background-color: var(--bg-card);    /* Un tono ligeramente más claro que el fondo */
+  background-color: rgba(0, 0, 0, 0.6);   
   border-top: 1px solid var(--border-color); /* Línea sutil superior */
   border-bottom: 1px solid var(--border-color); /* Línea sutil inferior */
 }
@@ -62,7 +65,7 @@ nav a {
 
 /* Estado :hover (cuando pasas el cursor) */
 nav a:hover {
-  color: var(--brand-accent);          /* Cambia a morado al pasar el ratón */
+  color: var(--text-primary);          /* Cambia a morado al pasar el ratón */
 }
 
 /* Estado :focus (para accesibilidad al navegar con la tecla Tab) */
@@ -137,23 +140,24 @@ main {
 
 /*5 TARJETAS DE INFORMACION / NOSOTROS*/
 .info-cards {
-    display: flex;
-    gap: var(--space-gap);
+    display: flex;                       /* Usa Flexbox para acomodar las tarjetas */
+    gap: var(--space-gap);               /* Espacio uniforme entre tarjetas (1.5rem) */
+    flex-wrap: wrap;                     /* Permite que si no caben, bajen a la siguiente línea */
+    margin-bottom: 3rem;         /* Tinte oscuro principal */
+    transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
 }
 
 .infocard {
-    flex: 1;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                box-shadow 0.4s ease, 
-                border-color 0.3s ease;
+  flex: 1 1 280px;                     /* Crece, se encoge y su tamaño base mínimo es 280px */
+  background-color: var(--bg-card);    /* Fondo oscuro de tarjeta */
+  border: 1px solid var(--border-color); /* Borde sutil minimalista */
+  border-radius: var(--radius-md);     /* Esquinas redondeadas */
+  padding: 1.5rem;                     /* Espacio dentro de la tarjeta */
+  display: flex;                       /* Flexbox interno para organizar el contenido */
+  flex-direction: column;               /* Apila título, texto y botón verticalmente */
+  justify-content: space-between;      /* Distribuye el espacio de forma uniforme */
+  background-color: rgba(30, 35, 45, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Animación al tocar o pasar el ratón */
 }
 
 .infocard h3 {
@@ -174,10 +178,9 @@ main {
 
 
 .infocard:hover {
-    z-index: 10;
-    transform: translateY(-8px) scale(1.02);
-    border-color: var(--brand-accent);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    background-color: rgba(30, 35, 45, 0.3); /* Revela más el fondo */
+    border-color: var(--text-primary); /* Borde más visible al pasar el ratón */
+    transform: translateY(-5px);
 }
 
 
@@ -224,7 +227,7 @@ main {
 
 /*6 FORMULARIO DE CONTACTO Y SESIÓN*/
 .form-container {
-  background-color: var(--bg-card);    /* Fondo oscuro de la tarjeta */
+  background-color: rgba(30, 35, 45, 0.3);  /* Fondo oscuro de la tarjeta */
   border: 1px solid var(--border-color); /* Borde minimalista */
   border-radius: var(--radius-md);     /* Esquinas redondeadas */
   padding: 2rem;                       /* Espaciado interno */
@@ -253,7 +256,8 @@ main {
   border: 1px solid var(--border-color); /* Borde sutil */
   border-radius: var(--radius-sm);     /* Bordes redondeados */
   color: var(--text-primary);          /* Texto que escribe el usuario */
-  font-family: inherit;                /* Usa la misma fuente que la página */
+  font-family: inherit;         
+  background-color: rgba(30, 35, 45, 0.3);       /* Usa la misma fuente que la página */
 }
 
 /* Estado :focus al escribir en una caja */
@@ -284,7 +288,8 @@ footer {
   border-top: 1px solid var(--border-color); /* Línea divisoria superior */
   color: var(--text-secondary);        /* Texto en gris suave */
   font-size: 0.85rem;                  /* Letra ligeramente más pequeña */
-  margin-top: auto;                    /* Empuja el footer siempre al final */
+  margin-top: auto;   
+  background-color: rgba(30, 35, 45, 0.3);                 /* Empuja el footer siempre al final */
 }
 
 /*8 MEDIA QUERIES (Diseño Responsive)*/
