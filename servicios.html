@@ -1,20 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>GRAPE</title>
- <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRAPE - Servicios y Productos</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
- <header>GRAPE</header>
- <nav>
-        <a href="index.html">INICIO</a>
-        <a href="nosotros.html">NOSOTROS</a>
-        <a href="contacto.html">CONTACTO</a>
-        <a href="sesion.html">INICIO SESION</a>
-    </nav>
- <main>...</main>
- <footer>...</footer>
+
+  <header>GRAPE</header>
+
+  <nav>
+    <a href="index.html">INICIO</a>
+    <a href="servicios.html">SERVICIOS</a>
+    <a href="nosotros.html">NOSOTROS</a>
+    <a href="contacto.html">CONTACTO</a>
+    <a href="sesion.html">INICIO SESION</a>
+  </nav>
+
+  <main>
+    <!-- Sección de presentación -->
+    <section class="hero">
+      <h1>Nuestros Productos de Tecnología</h1>
+      <p>Explora nuestro catálogo de dispositivos desarrollados con altos estándares de calidad y rendimiento.</p>
+    </section>
+
+    <!-- Sección con las 3 Tarjetas en Flexbox (Restricción Técnica) -->
+    <section id="productos">
+      <div class="cards-container">
+
+        <!-- Producto 1 -->
+        <article class="card">
+          <h3>Grape Book Pro 16</h3>
+          <p>Computador portátil de alto rendimiento con procesador de 12 núcleos, 32 GB de RAM y pantalla OLED. Ideal para desarrollo de software y multitarea exigente.</p>
+          <button type="button" class="btn">Ver especificaciones</button>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="card">
+          <h3>Grape Phone Ultra</h3>
+          <p>Smartphone con pantalla AMOLED de 120Hz, cámara triple de 108 MP, almacenamiento de 512 GB y batería de larga duración con carga ultrarrápida.</p>
+          <button type="button" class="btn">Ver especificaciones</button>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="card">
+          <h3>Grape Buds Studio</h3>
+          <p>Auriculares inalámbricos con cancelación activa de ruido, audio espacial de alta fidelidad y hasta 30 horas de reproducción continua.</p>
+          <button type="button" class="btn">Ver especificaciones</button>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 GRAPE Tech. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
