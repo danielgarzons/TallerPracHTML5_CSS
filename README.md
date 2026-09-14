@@ -6,4 +6,4 @@
 - Juan Daniel Garzon Solaque `Código`
 
 Taller desarrollado en Ambiente Frontend (HTML5 & CSS)
-Incluye Política de uso de IA - AIAS3
+Incluye Nivel de Escala de evaluación de uso de IA - AIAS3
