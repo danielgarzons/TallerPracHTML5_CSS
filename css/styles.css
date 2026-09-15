@@ -1,0 +1,327 @@
+/*1 VARIABLES GLOBALES MODO OSCURO / GRAPE*/
+:root {
+ --bg-primary: #0f0f12;  /* Fondo principal oscuro */
+ --bg-card: #18181c; /* Fondo de tarjetas*/
+ --text-primary: #f0f0f5; /* Texto principal claro */
+ --text-secondary: #9a9ab0; /* Texto secundario o descripciones */
+ 
+ --brand-accent:#8a2be2;    /* Violeta/Grape tecnologico para acentos */
+ --brand-hover: #9d4edd;    /* Tono mas claro para estados hover */
+ --border-color: #272730;   /* Bordes minimalistas */
+/* Espaciados y Bordes */
+ --radius-sm: 6px;          /* Bordes un poco redondeados */
+ --radius-md: 12px;         /* Bordes más redondeados para tarjetas */
+ --space-gap: 1.5rem;       /* Espaciado estándar entre elementos */
+}
+
+/* Reinicio global para que todos los navegadores midan igual */
+* {
+  box-sizing: border-box; /* El tamaño de los elementos incluye bordes y relleno */
+  margin: 0;              /* Quitamos márgenes por defecto del navegador */
+  padding: 0;             /* Quitamos rellenos por defecto del navegador */
+}
+
+/* Estilos para el fondo y la tipografía general */
+body {
+background-image: url('../img/fondo.avif'); /* Imagen de fondo */
+    
+    /* Configuración para que se ajuste perfectamente a la pantalla */
+    background-size: cover;          /* Cubre todo el ancho y alto */
+    background-position: center;      /* Centra la imagen */
+    background-repeat: no-repeat;    /* Evita que la imagen se repita */
+    background-attachment: fixed;    /* La imagen se queda fija mientras haces scroll */
+    
+    color: var(--text-primary);      /* Asegura que tus textos sigan siendo visibles */
+}                 /* Asegura que ocupe toda la altura de la pantalla */
+
+
+/*2 CABECERA Y NAVEGACIÓN*/
+header {
+  text-align: center;                  /* Centra el texto "GRAPE" */
+  padding: 2rem 1rem 1rem 1rem;        /* Relleno: arriba, lados y abajo */
+  font-size: 2.5rem;                   /* Tamaño grande para el título principal */
+  font-weight: 800;                    /* Letra gruesa (negrita) */
+  letter-spacing: 4px;                 /* Espaciado entre letras (estilo futurista/minimalista) */
+  color: var(--text-primary);          /* Color violeta de la marca */
+}
+
+nav {
+  display: flex;                       /* Coloca los enlaces en una fila horizontal */
+  justify-content: center;             /* Centra los enlaces horizontalmente */
+  gap: 2rem;                           /* Separación constante entre cada enlace */
+  padding: 1rem;                       /* Relleno interno arriba y abajo */
+  background-color: rgba(0, 0, 0, 0.6);   
+  border-top: 1px solid var(--border-color); /* Línea sutil superior */
+  border-bottom: 1px solid var(--border-color); /* Línea sutil inferior */
+}
+
+nav a {
+  color: var(--text-secondary);        /* Enlaces en color gris suave */
+  text-decoration: none;               /* Le quita el subrayado feo por defecto */
+  font-weight: 600;                    /* Letra semi-negrita */
+  font-size: 0.9rem;                   /* Tamaño de letra ligeramente pequeño */
+  transition: color 0.3s ease;         /* Transición suave al pasar el ratón */
+}
+
+/* Estado :hover (cuando pasas el cursor) */
+nav a:hover {
+  color: var(--text-primary);          /* Cambia a morado al pasar el ratón */
+}
+
+/* Estado :focus (para accesibilidad al navegar con la tecla Tab) */
+nav a:focus {
+  outline: 2px solid var(--brand-accent); /* Muestra un recuadro morado visible */
+  outline-offset: 4px;
+}
+
+/*3 ESTRUCTURA PRINCIPAL Y HERO*/
+main {
+  flex: 1;                             /* Hace que el contenido ocupe el espacio disponible */
+  max-width: 1200px;                   /* Ancho máximo para que no se desparrame en pantallas gigantes */
+  margin: 0 auto;                      /* Centra horizontalmente todo el contenido */
+  padding: 2rem 1rem;                  /* Relleno alrededor */
+  width: 100%;                         /* Ocupa el 100% hasta llegar al max-width */
+}
+
+.hero {
+  text-align: center;                  /* Centra el texto */
+  padding: 3rem 1rem;                  /* Espaciado interno amplio */
+  margin-bottom: 3rem;                 /* Separación de la siguiente sección */
+}
+
+.hero h1 {
+  font-size: 2.2rem;                   /* Título grande */
+  margin-bottom: 1rem;                 /* Separación del párrafo */
+  color: var(--text-primary);          /* Texto blanco suave */
+}
+
+.hero p {
+  color: var(--text-secondary);        /* Texto gris */
+  max-width: 600px;                    /* Limita el ancho del texto para leer fácil */
+  margin: 0 auto 1.5rem auto;          /* Centra el párrafo y deja espacio abajo */
+}
+
+/*4 TARJETAS DE PRODUCTOS / SERVICIOS (Flexbox)*/
+.cards-container {
+  display: flex;                       /* Usa Flexbox para acomodar las tarjetas */
+  gap: var(--space-gap);               /* Espacio uniforme entre tarjetas (1.5rem) */
+  flex-wrap: wrap;                     /* Permite que si no caben, bajen a la siguiente línea */
+  margin-bottom: 3rem;                 /* Espacio debajo de la sección */
+}
+
+.card {
+  flex: 1 1 280px;                     /* Crece, se encoge y su tamaño base mínimo es 280px */
+  background-color: var(--bg-card);    /* Fondo oscuro de tarjeta */
+  border: 1px solid var(--border-color); /* Borde sutil minimalista */
+  border-radius: var(--radius-md);     /* Esquinas redondeadas */
+  padding: 1.5rem;                     /* Espacio dentro de la tarjeta */
+  display: flex;                       /* Flexbox interno para organizar el contenido */
+  flex-direction: column;               /* Apila título, texto y botón verticalmente */
+  justify-content: space-between;      /* Distribuye el espacio de forma uniforme */
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Animación al tocar o pasar el ratón */
+}
+
+/* Efecto al pasar el cursor sobre la tarjeta */
+.card:hover {
+  transform: translateY(-5px);         /* Eleva la tarjeta 5 píxeles */
+  border-color: var(--brand-accent);   /* El borde cambia a color morado */
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;               /* Separación del título */
+  color: var(--text-primary);          /* Texto claro */
+}
+
+.card p {
+  color: var(--text-secondary);        /* Texto secundario gris */
+  font-size: 0.95rem;                  /* Tamaño adecuado de lectura */
+  margin-bottom: 1.5rem;               /* Espacio antes del botón */
+}
+
+/*5 TARJETAS DE INFORMACION / NOSOTROS*/
+.info-cards {
+    display: flex;                       /* Usa Flexbox para acomodar las tarjetas */
+    gap: var(--space-gap);               /* Espacio uniforme entre tarjetas (1.5rem) */
+    flex-wrap: wrap;                     /* Permite que si no caben, bajen a la siguiente línea */
+    margin-bottom: 3rem;         /* Tinte oscuro principal */
+    transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
+}
+
+.infocard {
+  flex: 1 1 280px;                     /* Crece, se encoge y su tamaño base mínimo es 280px */
+  background-color: var(--bg-card);    /* Fondo oscuro de tarjeta */
+  border: 1px solid var(--border-color); /* Borde sutil minimalista */
+  border-radius: var(--radius-md);     /* Esquinas redondeadas */
+  padding: 1.5rem;                     /* Espacio dentro de la tarjeta */
+  display: flex;                       /* Flexbox interno para organizar el contenido */
+  flex-direction: column;               /* Apila título, texto y botón verticalmente */
+  justify-content: space-between;      /* Distribuye el espacio de forma uniforme */
+  background-color: rgba(30, 35, 45, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease; /* Animación al tocar o pasar el ratón */
+}
+
+.infocard h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    transition: transform 0.3s ease;
+}
+
+.infocard p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+
+.infocard:hover {
+    background-color: rgba(30, 35, 45, 0.3); /* Revela más el fondo */
+    border-color: var(--text-primary); /* Borde más visible al pasar el ratón */
+    transform: translateY(-5px);
+}
+
+
+.infocard:hover p {
+    opacity: 1;
+    transform: translateY(0);
+}
+.preview-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.infocard:hover .preview-text {
+    opacity: 0;
+    display: none;
+}
+
+
+/*5 BOTONES REUTILIZABLES*/
+.btn {
+  display: inline-block;               /* Permite darle ancho, alto y márgenes */
+  background-color: var(--brand-accent);/* Color de fondo morado */
+  color: #ffffff;                      /* Texto blanco brillante */
+  padding: 0.75rem 1.5rem;             /* Relleno: arriba/abajo y lados */
+  border: none;                        /* Sin borde feo por defecto */
+  border-radius: var(--radius-sm);     /* Bordes suavemente redondeados */
+  font-weight: 600;                    /* Texto resaltado */
+  cursor: pointer;                     /* Cambia el puntero al icono de manito */
+  text-decoration: none;               /* Por si se usa en enlaces <a> */
+  text-align: center;                  /* Centra el texto interno */
+  transition: background-color 0.3s ease; /* Cambio suave de color */
+}
+
+.btn:hover {
+  background-color: var(--brand-hover);/* Cambia a un morado más claro al pasar el ratón */
+}
+
+.btn:focus {
+  outline: 2px solid #ffffff;          /* Cerco blanco de enfoque para accesibilidad */
+  outline-offset: 2px;
+}
+
+/*6 FORMULARIO DE CONTACTO Y SESIÓN*/
+.form-container {
+  background-color: rgba(30, 35, 45, 0.3);  /* Fondo oscuro de la tarjeta */
+  border: 1px solid var(--border-color); /* Borde minimalista */
+  border-radius: var(--radius-md);     /* Esquinas redondeadas */
+  padding: 2rem;                       /* Espaciado interno */
+  max-width: 450px;                    /* Ancho máximo del formulario */
+  margin: 0 auto;                      /* Centrado en pantalla */
+}
+
+.form-group {
+  margin-bottom: 1.2rem;               /* Espacio entre cada campo del formulario */
+  display: flex;                       /* Organiza el campo en columna */
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;               /* Separación entre texto y caja de entrada */
+  color: var(--text-primary);          /* Texto visible */
+  font-size: 0.9rem;
+}
+
+/* Estilo para cajas de texto, emails, contraseñas y textareas */
+.form-group input,
+.form-group textarea {
+  width: 100%;                         /* Ocupa todo el ancho disponible */
+  padding: 0.75rem;                    /* Espacio interno cómodo para escribir */
+  background-color: var(--bg-primary); /* Fondo más oscuro para los inputs */
+  border: 1px solid var(--border-color); /* Borde sutil */
+  border-radius: var(--radius-sm);     /* Bordes redondeados */
+  color: var(--text-primary);          /* Texto que escribe el usuario */
+  font-family: inherit;         
+  background-color: rgba(30, 35, 45, 0.3);       /* Usa la misma fuente que la página */
+}
+
+/* Estado :focus al escribir en una caja */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;                       /* Quita el borde azul feo por defecto */
+  border-color: var(--brand-accent);   /* Ilumina el borde en morado */
+}
+
+/* Estilo especial para la casilla de verificación (checkbox) */
+.form-checkbox {
+  display: flex;                       /* Pone la casilla y el texto al lado */
+  align-items: center;
+  gap: 0.5rem;                         /* Espacio entre casilla y texto */
+  margin-bottom: 1.5rem;
+}
+
+.form-checkbox label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/*7 PIE DE PÁGINA*/
+footer {
+  text-align: center;                  /* Centra el texto */
+  padding: 2rem 1rem;                  /* Espaciado arriba y abajo */
+  background-color: var(--bg-card);    /* Fondo oscuro */
+  border-top: 1px solid var(--border-color); /* Línea divisoria superior */
+  color: var(--text-secondary);        /* Texto en gris suave */
+  font-size: 0.85rem;                  /* Letra ligeramente más pequeña */
+  margin-top: auto;   
+  background-color: rgba(30, 35, 45, 0.3);                 /* Empuja el footer siempre al final */
+}
+
+/*8 MEDIA QUERIES (Diseño Responsive)*/
+/* Se activa cuando la pantalla mide 700px o menos (Móviles y Tablets verticales) */
+@media (max-width: 700px) {
+  nav {
+    flex-direction: column;            /* Pone los enlaces uno debajo de otro */
+    align-items: center;               /* Centra los enlaces */
+    gap: 1rem;
+  }
+
+  .cards-container {
+    flex-direction: column;            /* Pone las 3 tarjetas en 1 sola columna */
+  }
+}
+
+/* Se activa en dispositivos móviles pequeños como iPhone/Android (390px) */
+@media (max-width: 390px) {
+  header {
+    font-size: 1.8rem;                 /* Reduce un poco el título GRAPE */
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1rem 0.5rem;              /* Aprovecha más el espacio en pantallas pequeñas */
+  }
+
+  .form-container {
+    padding: 1rem;                     /* Reduce los rellenos internos */
+  }
+
+  .btn {
+    width: 100%;                       /* El botón ocupa todo el ancho para tocarlo fácil con el pulgar */
+  }
+}
